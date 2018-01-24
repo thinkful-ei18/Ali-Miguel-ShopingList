@@ -104,10 +104,12 @@ const shoppingList = (function(){
   function handleEditShoppingItemSubmit() {
     $('.js-shopping-list').on('submit', '#js-edit-item', event => {
       event.preventDefault();
+      // console.log('about to edit an item');
       const id = getItemIdFromElement(event.currentTarget);
+
       const itemName = $(event.currentTarget).find('.shopping-item').val();
-      api.updateItem(id, { name: newName }, () => {
-        store.findAndUpdate(id, { name: newName });
+      api.updateItem(id, { name: itemName }, () => {
+        store.findAndUpdate(id, { name: itemName });
         render();
       });
     });
