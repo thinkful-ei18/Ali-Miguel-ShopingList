@@ -13,7 +13,11 @@ const api = function(){
     };
     
     $.ajax({
+<<<<<<< HEAD
       url:`${BASE_URL}/items`,
+=======
+      url: `${BASE_URL}/items`,
+>>>>>>> refs/remotes/origin/api
       method:'POST',
       contentType:'application/json',
       data:JSON.stringify(newItem),
