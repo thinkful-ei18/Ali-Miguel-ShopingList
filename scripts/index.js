@@ -1,5 +1,5 @@
 'use strict';
-/* global shoppingList, store */
+/* global api, shoppingList, store */
 
 $(document).ready(function() {
   shoppingList.bindEventListeners();
@@ -8,4 +8,4 @@ $(document).ready(function() {
 
 store.items.push(Item.create('apples'));
 
-console.log(api.getItems('it works!'));
+api.getItems();
