@@ -8,6 +8,7 @@ const api = function(){
     $.getJSON(`${BASE_URL}/items`, callback); 
   };
   const createItem = function (name,callback){
+    console.log('123')
     const newItem ={
       name:name
     };
@@ -17,7 +18,7 @@ const api = function(){
       method:'POST',
       contentType:'application/json',
       data:JSON.stringify(newItem),
-      success:callback
+      success:callback,
     });
   };
 
