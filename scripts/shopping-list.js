@@ -94,19 +94,23 @@ const shoppingList = (function(){
     $('.js-shopping-list').on('click', '.js-item-delete', event => {
       // get the index of the item in store.items
       const id = getItemIdFromElement(event.currentTarget);
+      api.deleteItem(id,()=>{
+        store.findAndDelete(id);
+        render();
+      });
+
+
       // delete the item
-      store.findAndDelete(id);
+      // store.findAndDelete(id);
       // render the updated shopping list
-      render();
+      // render();
     });
   }
   
   function handleEditShoppingItemSubmit() {
     $('.js-shopping-list').on('submit', '#js-edit-item', event => {
       event.preventDefault();
-      // console.log('about to edit an item');
       const id = getItemIdFromElement(event.currentTarget);
-
       const itemName = $(event.currentTarget).find('.shopping-item').val();
       api.updateItem(id, { name: itemName }, () => {
         store.findAndUpdate(id, { name: itemName });
