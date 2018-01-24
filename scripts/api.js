@@ -5,7 +5,7 @@ const api = function(){
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/AliMig';
 
   const getItems = function(callback){
-    $.getJSON(`${BASE_URL}/items`, data => console.log(data)); 
+    $.getJSON(`${BASE_URL}/items`, callback); 
   };
   const createItem = function (name,callback){
     const newItem ={
@@ -13,11 +13,7 @@ const api = function(){
     };
     
     $.ajax({
-<<<<<<< HEAD
       url:`${BASE_URL}/items`,
-=======
-      url: `${BASE_URL}/items`,
->>>>>>> refs/remotes/origin/api
       method:'POST',
       contentType:'application/json',
       data:JSON.stringify(newItem),
