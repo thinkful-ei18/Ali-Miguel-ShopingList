@@ -8,10 +8,8 @@ $(document).ready(function() {
 
 store.items.push(Item.create('apples'));
 
-api.getItems((items) => {
-  const item = items[0];
-
-  api.updateItem(item.id, { name: 'foobar' }, () => {
-    console.log('updated!');
+api.createItem('pears', (newItem) => {
+  api.getItems((items) => {
+    console.log(items);
   });
 });

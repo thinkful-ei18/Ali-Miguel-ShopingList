@@ -13,7 +13,7 @@ const api = function(){
     };
     // JSON.stringify(newItem);
     $.ajax({
-      url:BASE_URL,
+      url: `${BASE_URL}/items`,
       method:'POST',
       contentType:'application/json',
       data:JSON.stringify(newItem),
