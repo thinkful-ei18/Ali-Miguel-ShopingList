@@ -7,10 +7,24 @@ const api = function(){
   const getItems = function(callback){
     $.getJSON(`${BASE_URL}/items`, data => console.log(data)); 
   };
+  const createItem = function (name,callback){
+    const newItem ={
+      name:name
+    };
+    // JSON.stringify(newItem);
+    $.ajax({
+      url:BASE_URL,
+      method:'POST',
+      contentType:'application/json',
+      data:JSON.stringify(newItem),
+      success:callback
+    });
+  };
 
 
   return {
     getItems,
+    createItem
   };
   
 }();
